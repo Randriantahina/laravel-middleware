@@ -16,7 +16,7 @@ class JwtMiddleware
         $token = $request->bearerToken();
         $user = null;
 
-        // Tenter d'authentifier l'utilisateur si un token est fourni
+        
         if ($token) {
             try {
                 $user = JWTAuth::setToken($token)->authenticate();
@@ -29,17 +29,17 @@ class JwtMiddleware
             }
         }
 
-        // 1️⃣ Empêcher les non-authentifiés d’accéder à `/api/ip-page`
+        
         if ($request->is('api/ip-page') && !$user) {
             return response()->json(['message' => 'Unauthorized access to IP Page'], 401);
         }
 
-        // 2️⃣ Empêcher les authentifiés d’accéder à `/api/login` et `/api/register`
+
         if ($user && ($request->is('api/login') || $request->is('api/register'))) {
             return response()->json(['message' => 'Already authenticated'], 403);
         }
 
-        // Ajouter l'utilisateur authentifié à la requête
+        
         if ($user) {
             $request->attributes->add(['user' => $user]);
         }
