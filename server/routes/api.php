@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\JwtMiddleware; 
 use App\Http\Controllers\StockController;
 
+Route::get('/check-auth', [AuthController::class, 'checkAuth']);
 
 
 Route::middleware([JwtMiddleware::class])->group(function () {

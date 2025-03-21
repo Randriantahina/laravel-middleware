@@ -83,4 +83,10 @@ public function logout(Request $request)
         return response()->json(['error' => 'Failed to log out'], 500);
     }
 }
+
+public function checkAuth(Request $request)
+{
+    return response()->json(['message' => 'Authenticated'], 200);
+}
+
 }

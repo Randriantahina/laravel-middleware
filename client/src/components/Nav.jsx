@@ -1,25 +1,43 @@
-import { Button } from '@/components/ui/button';
-import { useNavigate } from 'react-router-dom';
+import { FaHome } from 'react-icons/fa';
+import { TbUserSquareRounded } from 'react-icons/tb';
+import { Link } from 'react-router-dom';
 
 const Navigation = () => {
-  const navigate = useNavigate();
-
-  const navigateTo = (path) => {
-    navigate(path);
-  };
+  const Navigation__links = [
+    { id: 1, path: '/Dashboard', name: 'Dashboard', icon: FaHome },
+    { id: 2, path: '/Register', name: 'Sign Up', icon: TbUserSquareRounded },
+  ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full flex items-center justify-between px-6 py-4 bg-white shadow-md dark:bg-black z-50">
-      <div className="text-xl font-bold dark:text-white">Laravel</div>
-      <div className="space-x-2">
-        <Button variant="outline" onClick={() => navigateTo('/Register')}>
-          Sign Up
-        </Button>
-        <Button variant="outline" onClick={() => navigateTo('/Dashboard')}>
-          Users Ip{' '}
-        </Button>
+    <div className="w-16 md:w-56 fixed left-0 top-0 h-screen border-0 pt-8 px-4 bg-white backdrop-blur-md">
+      <div className="mb-8">
+        {/* logo */}
+        <img
+          src="https://download.logo.wine/logo/Laravel/Laravel-Logo.wine.png"
+          alt="react-svg"
+          className="w-40"
+        />
       </div>
-    </nav>
+      {/* Navigation Links */}
+      <ul className="mt-6 space-y-6">
+        {Navigation__links.map((link, index) => (
+          <li
+            key={link.id}
+            className=" font-medium rounded-md py-2 px-5 hover:bg-gray-100 hover:text-indigo-500"
+          >
+            <Link
+              to={link.path}
+              className="flex justify-center md:justify-start items-center md:space-x-5"
+            >
+              <span>{link.icon()} </span>
+              <span className="text-sm text-gray-500 hidden md:flex">
+                {link.name}{' '}
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 

@@ -4,12 +4,12 @@ import GuestRoute from './components/GuestRoute';
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
 import Register from './components/Register';
-import Navigation from './components/Nav';
+// import Navigation from './components/Nav';
 
 const App = () => {
   return (
     <>
-      <Navigation />
+      {/* <Navigation /> */}
       <Routes>
         <Route
           path="/"
