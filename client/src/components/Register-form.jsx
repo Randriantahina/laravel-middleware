@@ -61,8 +61,15 @@ export function RegisterForm({ className, ...props }) {
   return (
     <div className={cn('flex flex-col gap-6', className)} {...props}>
       <Card>
-        <CardHeader>
-          <CardTitle className="text-2xl">Sign Up</CardTitle>
+        <CardHeader className="items-center justify-center">
+          <CardTitle className="text-2xl">
+            {' '}
+            <img
+              src="https://download.logo.wine/logo/Laravel/Laravel-Logo.wine.png"
+              alt="Image"
+              className="w-48"
+            />
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit}>
