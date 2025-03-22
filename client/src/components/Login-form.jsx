@@ -112,6 +112,12 @@ export function LoginForm({ className, ...props }) {
           </div>
         </CardContent>
       </Card>
+      <div className="mt-4 text-center text-sm">
+        Don't have an account?{' '}
+        <Link to="/Register" className="underline underline-offset-4">
+          Sign Up
+        </Link>
+      </div>
 
       {/* Mentions légales */}
       <div className="text-balance text-center text-xs text-muted-foreground [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-primary">
